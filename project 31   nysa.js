@@ -1,33 +1,6 @@
 var balloon,balloonImage1,balloonImage2;
 // create database and position variable here
 
-var balloonPosition=database.ref('balloon/height');
-balloonPosition.on('value',readPosition,showError);
-
-function updateHeight (x,y){
-  database.ref('balloon/height').set({
-'x': height.x+x,
-'y': height.y+y,
-
-  })
- }
-
-function readHeight (data){
-height=data.val();
-balloon.x=height.x;
-balloon.y=height.y;
-}
-
-function showError(){
-console.log("Error is writting to the database");
-}
-
-if(keyDown(UP_ARROW)){
-updateHeight(0,-10);
-balloon.addAnimation("hotAirBalloon",balloonImage2)
-balloon.scale=balloon.scale0,0.1;
-}
-
 function preload(){
    bg =loadImage("cityImage.png");
    balloonImage1=loadAnimation("hotairballoon1.png");
